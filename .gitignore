@@ -1,0 +1,5 @@
+node_modules/
+.node_modules_root_old/
+db/*.sqlite
+tmp/
+.DS_Store
