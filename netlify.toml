@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "24"
+  NODE_ENV = "production"
+  AWS_LAMBDA_JS_RUNTIME = "nodejs24.x"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["remix", "esbuild"]
+
+# Static files in public/ are served as-is; everything else goes through the app.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
