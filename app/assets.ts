@@ -11,6 +11,8 @@ export const assetServer = createAssetServer({
   },
   allow: ['app/assets/**', 'node_modules/**'],
   deny: ['app/**/*.server.*'],
+  watch: process.env.NODE_ENV !== 'production',
+  minify: process.env.NODE_ENV === 'production',
   sourceMaps: process.env.NODE_ENV === 'development' ? 'external' : undefined,
   scripts: {
     define: {
